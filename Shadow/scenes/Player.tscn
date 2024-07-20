@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bc1mhne6138fs" path="res://textures/tile-atlas.png" id="2_tsxo1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlpag"]
-radius = 32.0
+radius = 31.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_vrpbm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

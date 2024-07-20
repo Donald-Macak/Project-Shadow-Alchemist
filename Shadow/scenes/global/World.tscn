@@ -1,10 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cipfas7emk14u"]
+[gd_scene load_steps=3 format=3 uid="uid://cipfas7emk14u"]
 
 [ext_resource type="PackedScene" uid="uid://dss8adpbaosnx" path="res://scenes/Player.tscn" id="1_2rgb0"]
+[ext_resource type="PackedScene" uid="uid://b4diwqbv8vxlj" path="res://scenes/maps/TestMap.tscn" id="2_dgcee"]
 
 [node name="World" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_2rgb0")]
-position = Vector2(186, 184)
+[node name="Level" type="Node2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Lighting" type="Node2D" parent="Level"]
+
+[node name="TestMap" parent="Level" instance=ExtResource("2_dgcee")]
+
+[node name="Player" parent="." instance=ExtResource("1_2rgb0")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
