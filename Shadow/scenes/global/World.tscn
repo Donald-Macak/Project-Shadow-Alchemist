@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cipfas7emk14u"]
+[gd_scene load_steps=4 format=3 uid="uid://cipfas7emk14u"]
 
 [ext_resource type="PackedScene" uid="uid://dss8adpbaosnx" path="res://scenes/Player.tscn" id="1_2rgb0"]
 [ext_resource type="PackedScene" uid="uid://b4diwqbv8vxlj" path="res://scenes/maps/TestMap.tscn" id="2_dgcee"]
+[ext_resource type="PackedScene" uid="uid://cy1pxryjsf1e3" path="res://scenes/DummyEnemy.tscn" id="3_aeqg1"]
 
 [node name="World" type="Node2D"]
 
@@ -11,8 +12,19 @@
 
 [node name="TestMap" parent="Level" instance=ExtResource("2_dgcee")]
 
-[node name="Player" parent="." instance=ExtResource("1_2rgb0")]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
+
+[node name="Player" parent="." instance=ExtResource("1_2rgb0")]
+position = Vector2(592, 328)
+
+[node name="DummyEnemy" parent="." instance=ExtResource("3_aeqg1")]
+position = Vector2(800, 480)
+
+[node name="DummyEnemy2" parent="." instance=ExtResource("3_aeqg1")]
+position = Vector2(992, 544)
+
+[node name="DummyEnemy3" parent="." instance=ExtResource("3_aeqg1")]
+position = Vector2(1056, 416)

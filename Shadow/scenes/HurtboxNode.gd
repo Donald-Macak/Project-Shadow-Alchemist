@@ -10,7 +10,7 @@ func _ready() -> void:
 	connect("area_entered", self.damage)
 
 func damage(hitbox: HitboxNode):
-	if hitbox == null:
+	if hitbox == null or hitbox.owner == self.owner:
 		return
 
 	if health_node:

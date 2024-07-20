@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy1pxryjsf1e3"]
+
+[ext_resource type="Texture2D" uid="uid://bc1mhne6138fs" path="res://textures/tile-atlas.png" id="1_i4r52"]
+[ext_resource type="Script" path="res://scenes/HealthNode.gd" id="2_nbw4k"]
+[ext_resource type="Script" path="res://scenes/HurtboxNode.gd" id="3_mwnot"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ovaen"]
+radius = 31.0
+
+[node name="DummyEnemy" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ovaen")
+
+[node name="CosmeticLayer" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="CosmeticLayer"]
+texture = ExtResource("1_i4r52")
+region_enabled = true
+region_rect = Rect2(256, 0, 64, 64)
+
+[node name="HealthNode" type="Node2D" parent="."]
+script = ExtResource("2_nbw4k")
+MAX_HEALTH = 10
+
+[node name="HurtboxNode" type="Area2D" parent="." node_paths=PackedStringArray("health_node")]
+script = ExtResource("3_mwnot")
+health_node = NodePath("../HealthNode")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxNode"]
+shape = SubResource("CircleShape2D_ovaen")
