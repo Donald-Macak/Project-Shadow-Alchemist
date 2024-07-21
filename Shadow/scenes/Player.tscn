@@ -1,13 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dss8adpbaosnx"]
+[gd_scene load_steps=8 format=3 uid="uid://dss8adpbaosnx"]
 
 [ext_resource type="Script" path="res://scenes/PlayerControl.gd" id="1_vrpbm"]
 [ext_resource type="Texture2D" uid="uid://bc1mhne6138fs" path="res://textures/tile-atlas.png" id="2_tsxo1"]
+[ext_resource type="Script" path="res://scenes/HealthNode.gd" id="3_xytml"]
+[ext_resource type="Script" path="res://scenes/HurtboxNode.gd" id="4_4lncp"]
+[ext_resource type="Script" path="res://scenes/HitboxNode.gd" id="4_vykcl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlpag"]
-radius = 32.0
+radius = 31.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s7jft"]
+radius = 64.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_vrpbm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,4 +25,21 @@ shape = SubResource("CircleShape2D_qlpag")
 [node name="Sprite" type="Sprite2D" parent="CosmeticLayer"]
 texture = ExtResource("2_tsxo1")
 region_enabled = true
-region_rect = Rect2(192, 0, 64, 64)
+region_rect = Rect2(320, 0, 64, 64)
+
+[node name="HealthNode" type="Node2D" parent="."]
+script = ExtResource("3_xytml")
+MAX_HEALTH = 10
+
+[node name="HurtboxNode" type="Area2D" parent="." node_paths=PackedStringArray("health_node")]
+script = ExtResource("4_4lncp")
+health_node = NodePath("../HealthNode")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxNode"]
+shape = SubResource("CircleShape2D_s7jft")
+
+[node name="HitboxNode" type="Area2D" parent="."]
+script = ExtResource("4_vykcl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxNode"]
+shape = SubResource("CircleShape2D_s7jft")

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
-const FRICTION = 30.0
+const SPEED : float = 300.0
+const FRICTION : float = 30.0
 
 func _ready():
 	pass
