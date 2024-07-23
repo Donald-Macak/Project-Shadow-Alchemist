@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://cipfas7emk14u"]
+
+[ext_resource type="PackedScene" uid="uid://dss8adpbaosnx" path="res://scenes/Player.tscn" id="1_2rgb0"]
+[ext_resource type="PackedScene" uid="uid://c2c3jpny3hxqa" path="res://scenes/maps/DungeonMap.tscn" id="1_5esoq"]
+[ext_resource type="Script" path="res://scenes/global/UI_Controls.gd" id="1_42aum"]
+[ext_resource type="PackedScene" uid="uid://cy1pxryjsf1e3" path="res://scenes/DummyEnemy.tscn" id="3_aeqg1"]
+[ext_resource type="PackedScene" uid="uid://df32m3iunfimw" path="res://scenes/Items/Inventory_Item.tscn" id="5_a5gku"]
+[ext_resource type="Texture2D" uid="uid://tfllhkwyuv5e" path="res://textures/Potions/Green Potion.png" id="6_7l60u"]
+[ext_resource type="Texture2D" uid="uid://be7a2guep71m6" path="res://textures/Potions/Purple Potion.png" id="7_xlsgs"]
+[ext_resource type="Texture2D" uid="uid://c53lfhpydfj1o" path="res://textures/Potions/Red Potion.png" id="8_37mk4"]
+[ext_resource type="Texture2D" uid="uid://cdtvrcs5xdiul" path="res://textures/Potions/Grey Potion.png" id="9_2lfl6"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_42aum")
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="DungeonMap" parent="Level" instance=ExtResource("1_5esoq")]
+position = Vector2(-19, -4)
+
+[node name="Lighting" type="Node2D" parent="Level"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="Player" parent="." instance=ExtResource("1_2rgb0")]
+position = Vector2(329, 218)
+
+[node name="DummyEnemy" parent="." instance=ExtResource("3_aeqg1")]
+position = Vector2(795, 141)
+
+[node name="DummyEnemy2" parent="." instance=ExtResource("3_aeqg1")]
+position = Vector2(357, 581)
+
+[node name="DummyEnemy3" parent="." instance=ExtResource("3_aeqg1")]
+position = Vector2(752, 306)
+
+[node name="InventoryItem1" parent="." instance=ExtResource("5_a5gku")]
+position = Vector2(953, 98)
+item_type = "Potion"
+item_name = "Acid Potion"
+item_texture = ExtResource("6_7l60u")
+item_effect = "Splash on stuff"
+
+[node name="InventoryItem2" parent="." instance=ExtResource("5_a5gku")]
+position = Vector2(445, 29)
+item_type = "Potion"
+item_name = "Purple Potion"
+item_texture = ExtResource("7_xlsgs")
+item_effect = "Turns you invisible?"
+
+[node name="InventoryItem3" parent="." instance=ExtResource("5_a5gku")]
+position = Vector2(1094, 576)
+item_type = "Potion"
+item_name = "Red Potion"
+item_texture = ExtResource("8_37mk4")
+item_effect = "Flame-able"
+
+[node name="InventoryItem4" parent="." instance=ExtResource("5_a5gku")]
+position = Vector2(44, 650)
+item_type = "Potion"
+item_name = "Purple Potion"
+item_texture = ExtResource("7_xlsgs")
+item_effect = "Turns you invisible?"
+
+[node name="InventoryItem5" parent="." instance=ExtResource("5_a5gku")]
+position = Vector2(21, 495)
+item_type = "Potion"
+item_name = "Gray Potion"
+item_texture = ExtResource("9_2lfl6")
+item_effect = "Turns you Gray"
