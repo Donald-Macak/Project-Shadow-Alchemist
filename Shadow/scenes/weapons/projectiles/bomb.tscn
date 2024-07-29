@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://fwhi3wcs5bcq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm7nw"]
+size = Vector2(45, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dh1x1"]
+radius = 136.0
+
+[node name="Bomb" type="Node2D"]
+position = Vector2(135, 104)
+
+[node name="Bomb_Sprite" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.212305, 0.212305, 0.212305, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Bomb_Sprite"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = -5.0
+offset_right = 27.0
+color = Color(0.758532, 0.592856, 0.10086, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Bomb_Sprite"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = -13.0
+offset_right = 23.0
+offset_bottom = -5.0
+
+[node name="ColorRect3" type="ColorRect" parent="Bomb_Sprite"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = -13.0
+offset_right = 32.0
+offset_bottom = -9.0
+
+[node name="Bomb_Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_dm7nw")
+
+[node name="Explosion_Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dh1x1")
+debug_color = Color(0.991358, 0, 0.266604, 0.42)
+
+[node name="Bomb_Timer" type="Timer" parent="."]
