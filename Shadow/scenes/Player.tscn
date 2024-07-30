@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dss8adpbaosnx"]
+[gd_scene load_steps=9 format=3 uid="uid://dss8adpbaosnx"]
 
 [ext_resource type="Script" path="res://scenes/PlayerControl.gd" id="1_vrpbm"]
 [ext_resource type="Texture2D" uid="uid://bc1mhne6138fs" path="res://textures/tile-atlas.png" id="2_tsxo1"]
 [ext_resource type="Script" path="res://scenes/HealthNode.gd" id="3_xytml"]
 [ext_resource type="Script" path="res://scenes/HitboxNode.gd" id="4_vykcl"]
+[ext_resource type="Texture2D" uid="uid://bp6io1nt51y13" path="res://textures/Tiles/LIGHTmap.png" id="6_fsvgq"]
 [ext_resource type="PackedScene" uid="uid://ftr3tjugslnf" path="res://scenes/UI/Inventory/inventory_ui.tscn" id="6_m8jux"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlpag"]
@@ -36,9 +37,25 @@ MAX_HEALTH = 10
 script = ExtResource("4_vykcl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxNode"]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_s7jft")
 
 [node name="InventoryUI" type="CanvasLayer" parent="."]
 visible = false
 
 [node name="Inventory_UI" parent="InventoryUI" instance=ExtResource("6_m8jux")]
+
+[node name="TextureLight" type="PointLight2D" parent="."]
+scale = Vector2(2, 2)
+energy = 0.5
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 3.0
+texture = ExtResource("6_fsvgq")
+texture_scale = 0.5
+
+[node name="Shadow" type="PointLight2D" parent="."]
+scale = Vector2(2, 2)
+energy = 0.7
+shadow_enabled = true
+texture = ExtResource("6_fsvgq")
