@@ -37,3 +37,11 @@ func clear_grid_container():
 		grid_container.remove_child(child)
 		## make child elegible for garbadge collection
 		child.queue_free()
+
+func _physics_process(delta):
+	if ($"..".visible && UiControls.Cauldron_Nearby):
+		#print("show user the Cauldron_UI AS WELL!")
+		$Cauldron_UI.visible = true
+	if ($"..".visible && !UiControls.Cauldron_Nearby):
+		#print("DONT show user the Cauldron_UI AS WELL!")
+		$Cauldron_UI.visible = false

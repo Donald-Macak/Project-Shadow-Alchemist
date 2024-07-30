@@ -14,7 +14,7 @@ const BOMB = preload("res://scenes/weapons/projectiles/bomb.tscn")
 const SPLASH = preload("res://scenes/weapons/projectiles/splash.tscn")
 
 var equipped_weapon = "pellet"
-
+var Cauldron_Nearby = false
 
 func _ready():
 	## This Script is updating a global variable letting us know this is the active
@@ -43,7 +43,6 @@ func input_to_velocity() -> void:
 ## Functions For Character Movement End
 
 
-
 func _input(event):
 	## Input events are detected from the Project Settings
 	## "Toggle_Inventory" is set to Q in Input Map
@@ -51,6 +50,8 @@ func _input(event):
 		## The bang operator is assighning the value to equal the inverse
 		## of its current value. (True --> False)
 		inventory_ui.visible = !inventory_ui.visible
+		if !inventory_ui.visible:
+			pass
 		## Pausing During Menus open
 		## get_tree refers to the entire active scene
 		## If you wish to include it in any other features its best practice
@@ -58,7 +59,6 @@ func _input(event):
 		## In the inspector tab go to Node-Process-Mode
 		## This should be switched to always
 		print("Toggle Mode")
-		get_tree().paused = !get_tree().paused
 	
 	## Fire_Weapon Beta
 	## CTRL + SHIFT to uncomment starting at - if event.is_action_pressed

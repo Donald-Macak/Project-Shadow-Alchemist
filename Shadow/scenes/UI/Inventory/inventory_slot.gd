@@ -22,6 +22,7 @@ extends Control
 
 #Slot Item variable
 var item = null
+#var selectedItem = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,15 +31,33 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
+	if UiControls.selected_Item:
+		$TextureRect/GhostSpite.global_position = get_global_mouse_position()
+	if !UiControls.selected_Item:
+		$TextureRect/GhostSpite.texture = null
 
 func _on_item_button_pressed():
 	# Prevents blank panels from being pushed
 	print("button pressed")
 	if item != null:
-		use_panel.visible = !use_panel.visible
-
+		##old code we won't be using
+		#use_panel.visible = !use_panel.visible
+		if (UiControls.selected_Item_Name == $DetailPanel/ColorRect/ItemName.text):
+			$TextureRect/GhostSpite.texture = null
+			UiControls.selected_Item_Name = ""
+			UiControls.selected_Item_Texture = null
+			UiControls.selected_Item = false
+			return
+			
+		UiControls.selected_Item = true
+		if (UiControls.selected_Item):
+			UiControls.selected_Item_Name = $DetailPanel/ColorRect/ItemName.text
+			UiControls.selected_Item_Texture = $TextureRect/ItemSprite.texture
+			$TextureRect/GhostSpite.texture = $TextureRect/ItemSprite.texture
+			print(UiControls.selected_Item_Name)
+		if (!UiControls.selected_Item):
+			UiControls.selected_Item_Name = ""
+			UiControls.selected_Item_Texture = null
 
 func _on_item_button_mouse_entered():
 	print("mouse entered")

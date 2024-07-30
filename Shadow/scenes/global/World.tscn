@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cipfas7emk14u"]
+[gd_scene load_steps=11 format=3 uid="uid://cipfas7emk14u"]
 
 [ext_resource type="PackedScene" uid="uid://dss8adpbaosnx" path="res://scenes/Player.tscn" id="1_2rgb0"]
 [ext_resource type="PackedScene" uid="uid://c2c3jpny3hxqa" path="res://scenes/maps/DungeonMap.tscn" id="1_5esoq"]
 [ext_resource type="Script" path="res://scenes/global/UI_Controls.gd" id="1_42aum"]
 [ext_resource type="PackedScene" uid="uid://cy1pxryjsf1e3" path="res://scenes/DummyEnemy.tscn" id="3_aeqg1"]
+[ext_resource type="PackedScene" uid="uid://ctxscwlyyo4kf" path="res://scenes/UI/Crafting Utilities/Cauldron.tscn" id="5_3p6ri"]
 [ext_resource type="PackedScene" uid="uid://df32m3iunfimw" path="res://scenes/Items/Inventory_Item.tscn" id="5_a5gku"]
 [ext_resource type="Texture2D" uid="uid://tfllhkwyuv5e" path="res://textures/Potions/Green Potion.png" id="6_7l60u"]
 [ext_resource type="Texture2D" uid="uid://be7a2guep71m6" path="res://textures/Potions/Purple Potion.png" id="7_xlsgs"]
@@ -36,6 +37,9 @@ position = Vector2(357, 581)
 
 [node name="DummyEnemy3" parent="." instance=ExtResource("3_aeqg1")]
 position = Vector2(752, 306)
+
+[node name="CauldronSprite" parent="." instance=ExtResource("5_3p6ri")]
+position = Vector2(1172, 594)
 
 [node name="InventoryItem1" parent="." instance=ExtResource("5_a5gku")]
 position = Vector2(953, 98)

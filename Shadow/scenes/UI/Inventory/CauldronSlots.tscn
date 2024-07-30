@@ -1,0 +1,155 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmjf3y0ufmd3g"]
+
+[ext_resource type="Texture2D" uid="uid://cupv3xflutar2" path="res://textures/UI/Sqare.png" id="1_4rlpb"]
+[ext_resource type="Script" path="res://scenes/UI/Inventory/CauldronSlots.gd" id="1_cq5l2"]
+
+[node name="CauldronSlot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cq5l2")
+
+[node name="FireLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 74.0
+offset_right = 220.0
+offset_bottom = 97.0
+
+[node name="EarthLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 21.0
+offset_right = 173.0
+offset_bottom = 44.0
+
+[node name="AirLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 21.0
+offset_right = 220.0
+offset_bottom = 44.0
+
+[node name="WaterLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 21.0
+offset_right = 220.0
+offset_bottom = 44.0
+
+[node name="AirSlot" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.001
+anchor_bottom = -0.001
+offset_left = 228.0
+offset_top = 21.72
+offset_right = 268.0
+offset_bottom = 61.72
+texture = ExtResource("1_4rlpb")
+
+[node name="AirRect" type="TextureRect" parent="AirSlot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AirButton" type="Button" parent="AirSlot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WaterSlot" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.001
+anchor_bottom = -0.001
+offset_left = 180.0
+offset_top = 21.72
+offset_right = 220.0
+offset_bottom = 61.72
+texture = ExtResource("1_4rlpb")
+
+[node name="WaterRect" type="TextureRect" parent="WaterSlot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WaterButton" type="Button" parent="WaterSlot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EarthSlot" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.001
+anchor_bottom = -0.001
+offset_left = 133.0
+offset_top = 21.72
+offset_right = 173.0
+offset_bottom = 61.72
+texture = ExtResource("1_4rlpb")
+
+[node name="EarthRect" type="TextureRect" parent="EarthSlot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EarthButton" type="Button" parent="EarthSlot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FireSlot" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.001
+anchor_bottom = -0.001
+offset_left = 180.0
+offset_top = 74.72
+offset_right = 220.0
+offset_bottom = 114.72
+texture = ExtResource("1_4rlpb")
+
+[node name="FireRect" type="TextureRect" parent="FireSlot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FireButton" type="Button" parent="FireSlot"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BrewButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.001
+anchor_bottom = -0.001
+offset_left = 277.0
+offset_top = 23.72
+offset_right = 366.0
+offset_bottom = 61.72
+text = "Brew"
+
+[node name="EmptyButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 71.0
+offset_right = 368.0
+offset_bottom = 109.0
+text = "Dump"
+
+[connection signal="pressed" from="AirSlot/AirButton" to="." method="_on_air_button_pressed"]
+[connection signal="pressed" from="WaterSlot/WaterButton" to="." method="_on_water_button_pressed"]
+[connection signal="pressed" from="EarthSlot/EarthButton" to="." method="_on_earth_button_pressed"]
+[connection signal="pressed" from="FireSlot/FireButton" to="." method="_on_fire_button_pressed"]
+[connection signal="pressed" from="BrewButton" to="." method="_on_brew_button_pressed"]
+[connection signal="pressed" from="EmptyButton" to="." method="_on_empty_button_pressed"]

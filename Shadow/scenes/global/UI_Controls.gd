@@ -2,6 +2,10 @@ extends Node2D
 
 ## Initialize New Inventory
 var inventory = []
+var Cauldron_Nearby = false
+var selected_Item = null
+var selected_Item_Name = ""
+var selected_Item_Texture = null
 
 ## This will create a pathway to the Inventory Scene so
 ## it knows whenever we want to update any aspect of if
@@ -19,7 +23,7 @@ var player_node: Node = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	##set the inventory to be an array with 27 index positions
-	inventory.resize(27)
+	inventory.resize(21)
 
 
 ## Inventory Function Script Start

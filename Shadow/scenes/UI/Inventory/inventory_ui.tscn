@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ftr3tjugslnf"]
+[gd_scene load_steps=5 format=3 uid="uid://ftr3tjugslnf"]
 
 [ext_resource type="Script" path="res://scenes/UI/Inventory/inventory_ui.gd" id="1_a2hp0"]
+[ext_resource type="Texture2D" uid="uid://dd5ym55ct8fro" path="res://textures/UI/Inventory Box.png" id="2_h3eb6"]
+[ext_resource type="Texture2D" uid="uid://b4wnxhy5gvvde" path="res://textures/Cauldron Sprites.png" id="3_q3c6p"]
+[ext_resource type="PackedScene" uid="uid://cmjf3y0ufmd3g" path="res://scenes/UI/Inventory/CauldronSlots.tscn" id="4_qlfas"]
 
 [node name="Inventory_UI" type="Control"]
 layout_mode = 3
@@ -11,10 +14,45 @@ offset_right = 67.0
 offset_bottom = 45.0
 script = ExtResource("1_a2hp0")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 650.0
-offset_top = 514.0
-offset_right = 1250.0
-offset_bottom = 714.0
-columns = 9
+offset_left = -26.0
+offset_top = -4.0
+offset_right = 349.0
+offset_bottom = 131.0
+texture = ExtResource("2_h3eb6")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.435
+anchor_top = 0.136
+anchor_right = -0.435
+anchor_bottom = 0.136
+offset_left = -3.6
+offset_top = -4.44
+offset_right = 361.4
+offset_bottom = 119.56
+pivot_offset = Vector2(3, 3)
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 10
+columns = 7
+
+[node name="Cauldron_UI" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 134.0
+offset_right = 349.0
+offset_bottom = 269.0
+texture = ExtResource("2_h3eb6")
+
+[node name="CauldronSlot" parent="Cauldron_UI" instance=ExtResource("4_qlfas")]
+layout_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Cauldron_UI"]
+position = Vector2(144, 90)
+scale = Vector2(2.46875, 2.26562)
+texture = ExtResource("3_q3c6p")
+hframes = 2
+vframes = 2
+frame = 3
